@@ -1,15 +1,16 @@
 package org.example.lesson_4
 
+const val MINIMUM_WEIGHT = 35
+const val WEIGHT_LIMIT = 100
+const val VOLUME = 100
+
 fun main() {
-    val minimumWeight = 35
-    val weightLimit = 100
-    val volume = 100
     var setWeight = 20
     var specifiedVolume = 80
-    var Weight1 = (setWeight > minimumWeight) && (setWeight <= weightLimit) && (specifiedVolume < volume)
-    println("Груз с весом $setWeight кг и объемом $specifiedVolume л соответствует категории 'Average': $Weight1")
+    val weight = (setWeight > MINIMUM_WEIGHT) && (setWeight <= WEIGHT_LIMIT) && (specifiedVolume < VOLUME)
+    println("Груз с весом $setWeight кг и объемом $specifiedVolume л соответствует категории 'Average': $weight")
     setWeight = 50
     specifiedVolume = 100
-    println("Груз с весом $setWeight кг и объемом $specifiedVolume л соотвествует категории 'Average': $Weight1")
+    println("Груз с весом $setWeight кг и объемом $specifiedVolume л соотвествует категории 'Average': $weight")
 
 }
