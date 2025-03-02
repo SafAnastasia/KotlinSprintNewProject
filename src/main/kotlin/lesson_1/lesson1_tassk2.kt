@@ -7,6 +7,6 @@ fun main() {
     println(thanksForThePurchase)
     val totalNumberOfEmployees: Int = 2000
     //println(totalNumberOfEmployees)
-    val totalNumberOfEmployees: Int = 1999
+    //val totalNumberOfEmployees: Int = 1999
     println(totalNumberOfEmployees)
 }
