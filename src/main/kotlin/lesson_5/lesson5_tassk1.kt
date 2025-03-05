@@ -1,13 +1,15 @@
 package org.example.lesson_5
 
-fun main(){
-    println("Напишите сумму чисел?")
-    val numbers = readln()!!.split(" ").map{ it.toInt()}
-    var number1 = 2
-    var number2 = 2
-    val sum = number1 + number2
-    if (numbers == sum){
+val number1 = 2
+val number2 = 2
+
+fun main() {
+    println("Решите простой пример: $number1 + $number2 = ?")
+    val numbers = readln()!!.toInt()
+
+    if (numbers == number1 + number2){
         println("Добро пожаловать!")
-    } else
+    } else {
         println("Доступ запрещен")
+    }
 }
