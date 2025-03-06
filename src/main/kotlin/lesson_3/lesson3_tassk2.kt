@@ -7,3 +7,4 @@ fun main() {
     surname = "Сидорова"
     age = "22"
     println("$surname Татьяна Сергеевна, $age")
+}
