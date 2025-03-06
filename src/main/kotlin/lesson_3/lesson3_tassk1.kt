@@ -1,7 +1,5 @@
 package org.example.lesson_3
 
-package org.example.lesson_3
-
 fun main() {
     var name = "Лена"
     var greetings = "день"
