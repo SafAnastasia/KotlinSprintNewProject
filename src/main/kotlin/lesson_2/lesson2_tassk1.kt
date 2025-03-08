@@ -7,3 +7,4 @@ fun main() {
     val schBoy4: Int = 5
     val arithmeticMean = (schBoy1 + schBoy2 + schBoy3 + schBoy4) / QUANTITY.toDouble()
     println("%.2f".format(arithmeticMean))
+}
