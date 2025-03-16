@@ -6,7 +6,11 @@ const val IS_SUNNY = true
 const val TENT_OPEN = true
 
 fun main() {
-    val favorableConditions = IS_SUNNY && TENT_OPEN && HUMIDITY == 20 && SEASON != "зима"
+    val sunnyWeather = true
+    val airWumidity = 20
+    val currentSeason = "зима"
+    val tentNow = true
+    val favorableConditions = IS_SUNNY == sunnyWeather && TENT_OPEN == tentNow && HUMIDITY == airWumidity && SEASON != currentSeason
 
     println("Благоприятные ли условия сейчас для роста бобовых? $favorableConditions")
 }
