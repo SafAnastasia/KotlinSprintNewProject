@@ -8,9 +8,9 @@ fun main() {
 
     for (i in passwordSize downTo 1) {
         if (i % 2 == 0) {
-            password.append(numbers.shuffled().first())
+            password.append(numbers.random())
         } else {
-            password.append(letters.shuffled().first())
+            password.append(letters.random())
         }
     }
     println("Пароль: $password ")
