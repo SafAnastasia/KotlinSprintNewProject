@@ -7,17 +7,16 @@ fun main() {
     println("Какой ингредиент нужно найти в рецепте: ")
     val ingredient = readLine()
     var found = false
+
     for (i in pancakeRecipe) {
         if (ingredient == i) {
             found = true
             break
         }
     }
-        if (found) {
-            println("Ингредиент $ingredient в рецепте есть")
-
-        } else {
-            println("Такого ингредиента в рецепте нет")
-
-        }
+    if (found) {
+        println("Ингредиент $ingredient в рецепте есть")
+    } else {
+        println("Такого ингредиента в рецепте нет")
     }
+}
