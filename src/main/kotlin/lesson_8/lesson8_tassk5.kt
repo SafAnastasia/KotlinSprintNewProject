@@ -9,7 +9,7 @@ fun main() {
         println("Введите ингредиент №${i +1}: ")
         igredients[i] = readln()
     }
-    println("Список ингредиентов: ${igredients.joinToString { "," }}")
+    println("Список ингредиентов: ${igredients.joinToString ( "," )}")
 
 
     
