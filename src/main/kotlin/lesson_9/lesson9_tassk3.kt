@@ -9,9 +9,7 @@ fun main() {
     println("Введите количество ингредиентов: ")
     val quantityOfIngredients = readln().toInt()
 
-    omeletIngredients[0] *= quantityOfIngredients
-    omeletIngredients[1] *= quantityOfIngredients
-    omeletIngredients[2] *= quantityOfIngredients
+    val newOmeletIngredients = omeletIngredients.map {it * quantityOfIngredients}
 
-    println("На $quantityOfIngredients порций вам понадобится: Яиц – ${omeletIngredients[0]} шт., молока – ${omeletIngredients[1]} мл., сливочного масла – ${omeletIngredients[2]} гр.")
+    println("На $newOmeletIngredients порций вам понадобится: Яиц – ${newOmeletIngredients[0]} шт., молока – ${newOmeletIngredients[1]} мл., сливочного масла – ${newOmeletIngredients[2]} гр.")
 }
