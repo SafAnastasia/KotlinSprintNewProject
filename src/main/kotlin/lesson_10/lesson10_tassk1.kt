@@ -1,7 +1,5 @@
 package org.example.lesson_10
 
-import kotlin.random.Random
-
 fun main() {
     println("Ход игрока")
     val manThrow = throwDice()
@@ -22,6 +20,6 @@ fun main() {
 }
 
 fun throwDice(): Int {
-    return Random.nextInt(1,7)
+    return (1..7).random()
 }
 
