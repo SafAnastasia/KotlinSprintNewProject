@@ -1,5 +1,7 @@
 package org.example.lesson_10
 
+const val PASSWORD_LENGTH = 4
+
 fun main() {
     println("Введите логин: ")
     val login = readln()
@@ -15,5 +17,6 @@ fun main() {
 }
 
 fun dataLength(input: String): Boolean {
-    return input.length >= 4
+    return input.length >= PASSWORD_LENGTH
 }
+
