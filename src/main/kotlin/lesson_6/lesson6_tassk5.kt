@@ -4,8 +4,8 @@ fun main() {
     val attempts = 3
 
     for (attempt in 0..attempts) {
-        val number1 = (1..10).random()
-        val number2 = (1..10).random()
+        val number1 = (1..9).random()
+        val number2 = (1..9).random()
         var numberSumm = number2 + number1
 
         println("Попытка $attempt из $attempts")
