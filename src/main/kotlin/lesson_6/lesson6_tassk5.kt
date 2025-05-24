@@ -1,13 +1,11 @@
 package org.example.lesson_6
 
-import kotlin.random.Random
-
 fun main() {
     val attempts = 3
 
     for (attempt in 0..attempts) {
-        val number1 = Random.nextInt(1, 10)
-        val number2 = Random.nextInt(1, 10)
+        val number1 = (1..10).random()
+        val number2 = (1..10).random()
         var numberSumm = number2 + number1
 
         println("Попытка $attempt из $attempts")
