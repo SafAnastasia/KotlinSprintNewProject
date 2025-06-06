@@ -6,40 +6,43 @@ fun main() {
         val didUserWin = round()
         if (didUserWin) userWins++
         println("Хотите бросить кости еще раз? Введите Да или Нет:")
-        val answer = readln()
+        val answer = readln().lowercase()
         if (answer != "да") {
             break
         }
     }
-        println("Игра окончена. Вы выиграли $userWins партий.")
-    }
-    fun round(): Boolean {
-        println("Ход игрока")
-        val manThrow = throwDice()
-        println("Игрок выбросил: $manThrow")
+    println("Игра окончена. Вы выиграли $userWins партий.")
+}
 
-        println("Ход компьютера")
-        val computerThrow = throwDice()
-        println("Компьютер выбросил: $computerThrow")
+fun round(): Boolean {
+    println("Ход игрока")
+    val manThrow = throwDice()
+    println("Игрок выбросил: $manThrow")
 
-        return when {
-            manThrow == computerThrow -> {
-                println("Победила дружба")
-                false
-            }
+    println("Ход компьютера")
+    val computerThrow = throwDice()
+    println("Компьютер выбросил: $computerThrow")
+
+    return when {
+        manThrow == computerThrow -> {
+            println("Победила дружба")
+            false
+        }
+
         manThrow > computerThrow -> {
             println("Победило человечество")
             true
         }
-            else -> {
-                println("Победила машина")
-                false
-            }
+
+        else -> {
+            println("Победила машина")
+            false
         }
     }
-    fun throwDice(): Int {
-        return (1..6).random()
-    }
+}
+fun throwDice(): Int {
+    return (1..6).random()
+}
 
 
 
