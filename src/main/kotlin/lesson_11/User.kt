@@ -3,15 +3,15 @@ package org.example.lesson_11
 class User (
     val userName: String,
     val avatar: String,
-    val status: String = "микрофон выключен"
+    var status: String = "микрофон выключен"
 )
 
 class Room (
     var cover: String,
     var name: String,
-    var listParticipants: MutableList<User>
+    var listParticipants: MutableList<User> = mutableListOf()
 ) {
-    val participants = MutableList<User>()
+    val participants = mutableListOf<User>()
 
     fun addingParticipant(user: User){
         participants.add(user)
@@ -19,14 +19,13 @@ class Room (
 
     }
     fun statusUpdate(userName: String, newStatus: String) {
-        user.status = newStatus
+        val user = participants.find { it.userName == userName }
+        user!!.status = newStatus
         println("Обновленный статус: $newStatus")
     }
 }
-
 val room = Room("обложка","разговоры")
 val user1 = User("anna","кот", "разговаривает")
-
 
 fun main() {
     room.addingParticipant(user1)
