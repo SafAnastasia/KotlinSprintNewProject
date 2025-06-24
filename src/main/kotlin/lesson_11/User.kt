@@ -1,33 +1,46 @@
 package org.example.lesson_11
 
-class User (
-    val userName: String,
-    val avatar: String,
-    var status: String = "микрофон выключен"
-)
-
-class Room (
-    var cover: String,
-    var name: String,
-    var listParticipants: MutableList<User> = mutableListOf()
+class RecipeСategory (
+    val id: Int,
+    val name: String,
 ) {
-    val participants = mutableListOf<User>()
+    val favorites = mutableListOf<Recipe>()
 
-    fun addingParticipant(user: User){
-        participants.add(user)
-        println("Добавить участника: ${user.userName} в комнату: $cover")
-
-    }
-    fun statusUpdate(userName: String, newStatus: String) {
-        val user = participants.find { it.userName == userName }
-        user!!.status = newStatus
-        println("Обновленный статус: $newStatus")
+    fun addFavorites(recipe: Recipe) {
+        favorites.add(recipe)
+        println("Рецепт ${recipe.name} добавлен в избранное, в категорию $name")
     }
 }
-val room = Room("обложка","разговоры")
-val user1 = User("anna","кот", "разговаривает")
+
+class Ingredient (
+    val id: Int,
+    val name: String,
+    val description: String = " ",
+)
+
+class Recipe (
+    val id: Int,
+    val name: String,
+    val category: RecipeСategory,
+    val ingredients: List<Ingredient>,
+    val instructions: String = " ",
+)
+
+val categoryBurgers = RecipeСategory(1, "бургеры")
+val categoryDesserts = RecipeСategory(2, "десерты")
+val сategoryPizza = RecipeСategory(3, "пицца")
+val categoryFish = RecipeСategory(4, "рыба")
+
+val ingredients1 = Ingredient (1, "творог", "360 г")
+val ingredients2 = Ingredient (2, "куриное яйцо", "2 шт")
+val ingredients3 = Ingredient (3, "пшеничная мука", "6 ст ложек")
+val ingredients4 = Ingredient (4, "подсолнечное масло", "5 ст ложек")
+val ingredients5 = Ingredient (5, "сахар", "2 ст ложки")
+
+var burgerRecipe = Recipe (1, "бургер с грибами и сыром", categoryBurgers,
+    listOf(ingredients1, ingredients2, ingredients3, ingredients4, ingredients5)
+)
 
 fun main() {
-    room.addingParticipant(user1)
-    room.statusUpdate("anna", "микрофон выключен")
+    categoryBurgers.addFavorites(burgerRecipe)
 }
