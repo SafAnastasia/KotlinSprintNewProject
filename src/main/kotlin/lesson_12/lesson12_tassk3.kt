@@ -1,15 +1,9 @@
 package org.example.lesson_12
 
 class WeatherDayNewTemp (daytimeTempK: Int, nightTempK: Int, precipitationDay: Boolean) {
-    val daytimeTemp: Int
-    val nightTemp: Int
-    val precipitationDay: Boolean
-
-    init {
-        daytimeTemp = daytimeTempK - 273
-        nightTemp = nightTempK - 273
-        precipitationDay = precipitationDay
-    }
+    val daytimeTemp = daytimeTempK - 273
+    val nightTemp = nightTempK - 273
+    val precipitationDay = precipitationDay
 
     fun printWeather() {
         println("Дневная температура: $daytimeTemp")
