@@ -19,26 +19,26 @@ class WeatherDayNewTemp (daytimeTempK: Int, nightTempK: Int, precipitationDay: B
 }
 
 fun main() {
-    val monthlyTemperature = MutableListOf<WeatherDayNewTemp>
+    val monthlyTemperature = mutableListOf<WeatherDayNewTemp>()
 
-    for (i in 1..30)
+    for (i in 1..30){
         monthlyTemperature.add(WeatherDayNewTemp(daytimeTempK = Random.nextInt(283, 308),
             nightTempK = Random.nextInt(278, 308),
             precipitationDay = Random.nextBoolean())
         )
 }
 
-val daytimeTemps = monthlyTemperature.map {it.daytimeTemp}
-val nightTemps = monthlyTemperature.map {it.nightTemp}
+    val daytimeTemps = monthlyTemperature.map {it.daytimeTemp}
+    val nightTemps = monthlyTemperature.map {it.nightTemp}
 
-val aveDaytimeTemps = daytimeTemps.average()
-val aveNightTemps  = nightTemps.average()
+    val aveDaytimeTemps = daytimeTemps.average()
+    val aveNightTemps  = nightTemps.average()
 
-val precipitationDay = monthlyTemperature.count {it.precipitationDay}
+    val precipitationDay = monthlyTemperature.count {it.precipitationDay}
 
-println("Погода за месяц: ")
-println("Средняя дневная температура: $aveDaytimeTemps")
-println("Средняя ночная температура: $aveNightTemps")
-println("Количество дней с осадками: $precipitationDay")
-
+    println("Погода за месяц: ")
+    println("Средняя дневная температура: $aveDaytimeTemps")
+    println("Средняя ночная температура: $aveNightTemps")
+    println("Количество дней с осадками: $precipitationDay")
+}
 
