@@ -1,7 +1,7 @@
 package org.example.lesson_13
 
-class Directory (
-    var name: String,
-    var number: Long,
-    var company: String?,
+class Contact (
+    val name: String,
+    val number: Long,
+    val company: String?,
 )
