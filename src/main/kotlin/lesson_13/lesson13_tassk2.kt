@@ -6,7 +6,7 @@ class TelDirectory(
     val company: String? = null
 ) {
     fun printInfo() {
-        println("Имя: $name, Номер телефона: $number, Компания: ${company ?: "<не указанно>"}")
+        println("Имя: $name, \n Номер телефона: $number, \n Компания: ${company ?:  "<не указанно>"}")
     }
 }
 
