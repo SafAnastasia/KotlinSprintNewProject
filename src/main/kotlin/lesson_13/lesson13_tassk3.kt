@@ -1,24 +1,20 @@
 package org.example.lesson_13
 
-class PhoneBook(
+class PhoneContact(
     val name: String,
-    var number: Long,
-    var company: String? = null
+    val number: Long,
+    val company: String? = null
 )
 
 fun main() {
     val contacts = listOf(
-        PhoneBook("Анна", 89078906967, null),
-        PhoneBook("Артем", 89065478987, null),
-        PhoneBook("Алина", 89054783938, "null"),
-        PhoneBook("Лиса", 89048906789, "Google"),
-        PhoneBook("Дима", 89076785674, "Mail")
+        PhoneContact("Анна", 89078906967, null),
+        PhoneContact("Артем", 89065478987, null),
+        PhoneContact("Алина", 89054783938, "null"),
+        PhoneContact("Лиса", 89048906789, "Google"),
+        PhoneContact("Дима", 89076785674, "Mail")
     )
-
-    fun List<PhoneBook>.printInfo() {
-        for (contact in this) {
-            println(contact.company)
-        }
-    }
-    contacts.printInfo()
+    contacts.mapNotNull { it.company }
+        .distinct()
+        .forEach { println(it) }
 }
