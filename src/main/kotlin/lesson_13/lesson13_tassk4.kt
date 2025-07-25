@@ -16,7 +16,7 @@ fun main() {
     while (true) {
         println("Введите имя:")
         val name = readln().trim()
-        if (name.lowercase() == "выход") break
+        if (name.isEmpty()) break
 
         println("Введите номер телефона: ")
         val number = readln().trim().toLongOrNull()
