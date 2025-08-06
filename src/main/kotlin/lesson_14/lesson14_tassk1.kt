@@ -2,36 +2,30 @@ package org.example.lesson_14
 
 open class Liner(
     open val name: String,
-    open val speed: Int,
-    open val pasСapacity: Int,
-    open val cargoСapacity: Int
+    open val speed: Int = 30,
+    open val passengerCapacity: Int = 100,
+    open val cargoCapacity: Int = 1000
 ) {
     open fun info() {
-        println("Лайнер: скорость: $speed,\n количество пассажиров: $pasСapacity,\n вместимость грузов: $cargoСapacity")
+        println("Лайнер: скорость: $speed,\n количество пассажиров: ${passengerCapacity}Сapacity,\n вместимость грузов: $cargoCapacity")
     }
 }
 
 class CargoShip(
     override val name: String,
-    override val speed: Int,
-    override val pasСapacity: Int,
-    override val cargoСapacity: Int
-) : Liner(name, speed, pasСapacity, cargoСapacity) {
+) : Liner(name, 20, passengerCapacity = 100, cargoCapacity = 2000) {
 
     override fun info() {
-        println("Грузовое судно: скорость: $speed,\n количество пассажиров: $pasСapacity,\n вместимость грузов: $cargoСapacity")
+        println("Грузовое судно: скорость: $speed,\n количество пассажиров: $passengerCapacity,\n вместимость грузов: $cargoCapacity")
     }
 
 }
 
 class Icebreaker(
     override val name: String,
-    override val speed: Int,
-    override val pasСapacity: Int,
-    override val cargoСapacity: Int
-) : Liner(name, speed, pasСapacity, cargoСapacity) {
+) : Liner(name, speed = 15, passengerCapacity = 50, cargoCapacity = 1000) {
     override fun info() {
-        println("Ледокол: скорость: $speed,\n количество пассажиров: $pasСapacity,\n вместимость грузов: $cargoСapacity")
+        println("Ледокол: скорость: $speed,\n количество пассажиров: $passengerCapacity,\n вместимость грузов: $cargoCapacity")
     }
 
     fun crushIce() {
@@ -40,9 +34,9 @@ class Icebreaker(
 }
 
 fun main() {
-    val liner = Liner("Anna", 30, 100, 1000)
-    val cargoShip = CargoShip("Ship", 20, 100, 2000)
-    val iceBreaker = Icebreaker("Ice", 15, 50, 1000)
+    val liner = Liner("Anna")
+    val cargoShip = CargoShip("Ship")
+    val iceBreaker = Icebreaker("Ice")
 
     liner.info()
     cargoShip.info()
