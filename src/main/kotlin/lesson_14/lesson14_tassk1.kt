@@ -7,13 +7,13 @@ open class Liner(
     open val cargoCapacity: Int = 1000
 ) {
     open fun info() {
-        println("Лайнер: скорость: $speed,\n количество пассажиров: ${passengerCapacity}Сapacity,\n вместимость грузов: $cargoCapacity")
+        println("Лайнер: скорость: $speed,\n количество пассажиров: ${passengerCapacity},\n вместимость грузов: $cargoCapacity")
     }
 }
 
 class CargoShip(
     override val name: String,
-) : Liner(name, 20, passengerCapacity = 100, cargoCapacity = 2000) {
+) : Liner(name, speed = 20, passengerCapacity = 100, cargoCapacity = 2000) {
 
     override fun info() {
         println("Грузовое судно: скорость: $speed,\n количество пассажиров: $passengerCapacity,\n вместимость грузов: $cargoCapacity")
