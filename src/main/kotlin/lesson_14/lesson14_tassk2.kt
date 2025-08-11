@@ -6,11 +6,11 @@ open class NewLiner(
     open val passengerCapacity: Int = 100,
     open val cargoCapacity: Int = 1000
 ) {
-    open fun info() {
+    open fun printInfo() {
         println("Лайнер $name: скорость: $speed,\n количество пассажиров: ${passengerCapacity},\n вместимость грузов: $cargoCapacity")
     }
 
-    fun extendsRamp() {
+    fun pushTram() {
         println("Выдвигает горизонтальный трап со шкафута")
     }
 }
@@ -19,11 +19,11 @@ class CargoShip1(
     override val name: String,
 ) : NewLiner(name, speed = 20, passengerCapacity = 100, cargoCapacity = 2000) {
 
-    override fun info() {
+    override fun printInfo() {
         println("Грузовое судно: скорость: $speed,\n количество пассажиров: $passengerCapacity,\n вместимость грузов: $cargoCapacity")
     }
 
-    fun activatesFaucet() {
+    fun activateFaucet() {
         println("Активирует погрузочный кран")
     }
 }
@@ -31,11 +31,11 @@ class CargoShip1(
 class Icebreaker1(
     override val name: String,
 ) : NewLiner(name, speed = 15, passengerCapacity = 50, cargoCapacity = 1000) {
-    override fun info() {
+    override fun printInfo() {
         println("Ледокол: скорость: $speed,\n количество пассажиров: $passengerCapacity,\n вместимость грузов: $cargoCapacity")
     }
 
-    fun opensGate() {
+    fun openGate() {
         println("Открывает ворота со стороны кормы")
     }
 
@@ -44,16 +44,16 @@ class Icebreaker1(
     }
 }
 
-    fun main() {
-        val liner = NewLiner("Anna")
-        val cargoShip = CargoShip1("Ship")
-        val iceBreaker = Icebreaker1("Ice")
+fun main() {
+    val liner = NewLiner("Anna")
+    val cargoShip = CargoShip1("Ship")
+    val iceBreaker = Icebreaker1("Ice")
 
-        liner.info()
-        cargoShip.info()
-        iceBreaker.crushIce()
-        iceBreaker.info()
-        liner.extendsRamp()
-        cargoShip.activatesFaucet()
-        iceBreaker.opensGate()
-    }
+    liner.printInfo()
+    cargoShip.printInfo()
+    iceBreaker.crushIce()
+    iceBreaker.printInfo()
+    liner.pushTram()
+    cargoShip.activateFaucet()
+    iceBreaker.openGate()
+}
