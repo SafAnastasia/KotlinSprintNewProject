@@ -19,7 +19,7 @@ class Circle(
     }
 
     override fun calculatePerimeter(): Double {
-        return PI * 3.14 * radius
+        return PI * 2 * radius
     }
 }
 
@@ -39,22 +39,22 @@ class Rectangle(
 
 fun main() {
     val figure = listOf(
-        Circle(Black, 4.0),
-        Circle(White, 3.0),
-        Rectangle(Black, 4.0, 6.0),
-        Rectangle(White, 4.0, 3.0)
+        Circle(BLACK, 4.0),
+        Circle(WHITE, 3.0),
+        Rectangle(BLACK, 4.0, 6.0),
+        Rectangle(WHITE, 4.0, 3.0)
     )
     val blackPerimeterSum = figure
-        .filter { it.color == Black }
+        .filter { it.color == BLACK }
         .sumOf { it.calculatePerimeter() }
 
     val whiteAreaSum = figure
-        .filter { it.color == White }
+        .filter { it.color == WHITE }
         .sumOf { it.calculateArea() }
 
     println("Сумма периметров всех черных фигур: %.2f".format(blackPerimeterSum))
     println("Сумма площадей всех белых фигур: %.2f".format(whiteAreaSum))
 }
 
-const val Black = "Black"
-const val White = "White"
+const val BLACK = "Black"
+const val WHITE = "White"
