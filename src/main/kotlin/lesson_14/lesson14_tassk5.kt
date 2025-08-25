@@ -15,10 +15,9 @@ class ChildMessage(
 
 class Chat(
     val name: String,
-    val nameId: Int,
 ) {
-    val messages = mutableListOf<Message>()
-    var messageIdCounter = 1
+    private val messages = mutableListOf<Message>()
+    private var messageIdCounter = 1
 
     fun addMessage(text: String, author: String) {
         val message = Message(author, messageIdCounter++, text)
@@ -52,7 +51,7 @@ class Chat(
 }
 
 fun main() {
-    val chat = Chat("Чат", 2567)
+    val chat = Chat("Чат")
     chat.addMessage("Привет всем!", "Анна")
     chat.addThreadMessage("Привет, Анна!", "Олег", 1)
     chat.addThreadMessage("Как дела?", "Мария", 1)
