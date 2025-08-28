@@ -4,33 +4,33 @@ interface FlyingCreature {
     fun fly(): String
 }
 
-interface SwimmingCreatures {
+interface SwimmingCreature {
     fun swim(): String
 }
 
-class CrucianCarp: SwimmingCreatures {
+class CrucianCarp : SwimmingCreature {
     override fun swim(): String {
-        return ("Карась плавает")
+        return "Карась плавает"
     }
 }
 
-class Gull: FlyingCreature {
+class Gull : FlyingCreature {
     override fun fly(): String {
-        return ("Чайка летает")
+        return "Чайка летает"
     }
 }
 
-class Duck: FlyingCreature, SwimmingCreatures {
+class Duck : FlyingCreature, SwimmingCreature {
     override fun swim(): String {
-        return ("Утка умеет плавать вод водой")
+        return "Утка умеет плавать вод водой"
     }
 
     override fun fly(): String {
-        return ("Утка умеет летать не высоко над водой")
+        return "Утка умеет летать не высоко над водой"
     }
 }
 
-fun main(){
+fun main() {
     val carp = CrucianCarp()
     val gull = Gull()
     val duck = Duck()
