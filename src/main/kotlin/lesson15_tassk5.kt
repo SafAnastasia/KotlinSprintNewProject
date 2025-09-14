@@ -16,8 +16,8 @@ interface Shipping {
     val maxLoad: Double
     var currentLoad: Double
 
-    fun cargoLoad(amount: Int): String
-    fun unloadCargo(amount: Int): String
+    fun cargoLoad(amount: Double): String
+    fun unloadCargo(amount: Double): String
 
 }
 
@@ -29,7 +29,7 @@ class Truck : Movable, TransportationOfPassengers, Shipping {
     override var currentLoad = 0.0
 
     override fun move(distance: Double): String {
-        return "Грузовая машина проехала $distance км с $currentPassengers пассажиров и $currentLoad тонн груза"
+        return "Грузовая машина проехала $distance км с $currentPassengers пассажирами и $currentLoad тонн груза"
     }
 
     override fun loadPassengers(count: Int): String {
@@ -45,7 +45,7 @@ class Truck : Movable, TransportationOfPassengers, Shipping {
         return "Выгружено $count пассажиров"
     }
 
-    override fun cargoLoad(amount: Int): String {
+    override fun cargoLoad(amount: Double): String {
         if (currentLoad + amount > maxLoad) {
             return "Нельзя загрузить, превышен лимит груза"
         }
@@ -53,7 +53,7 @@ class Truck : Movable, TransportationOfPassengers, Shipping {
         return "Загружено $amount тонн"
     }
 
-    override fun unloadCargo(amount: Int): String {
+    override fun unloadCargo(amount: Double): String {
         if (currentLoad - amount < 0) {
             return "Нельзя выгрузить больше, чем есть груза"
         }
@@ -67,12 +67,12 @@ class Car : Movable, TransportationOfPassengers {
     override var currentPassengers = 0
 
     override fun move(distance: Double): String {
-        return "Легковая машина проехала $distance км с $currentPassengers пассажиров"
+        return "Легковая машина проехала $distance км с $currentPassengers пассажирами"
     }
 
     override fun loadPassengers(count: Int): String {
         if (currentPassengers + count > maxPassengers) {
-            println("Превышенно количество пассажиров")
+            return "Превышенно количество пассажиров"
         }
         currentPassengers += count
         return "Загруженое количество пассажиров $count"
@@ -90,16 +90,20 @@ fun main() {
     val car1 = Car()
     val car2 = Car()
 
-    println(truck.cargoLoad(2))
+    //Загружаем пассажиров
     println(truck.loadPassengers(1))
-
-    println(truck.unloadCargo(2))
-    println(truck.unloadPassengers(1))
-
-    println(car1.unloadPassengers(3))
-    println(car1.loadPassengers(2))
-
-    println(car2.unloadPassengers(3))
+    println(car1.loadPassengers(3))
     println(car2.loadPassengers(2))
+    //Загружаем груз
+    println(truck.cargoLoad(2.0))
+    //Перевозим
+    println(car1.move(10.0))
+    println(car2.move(10.0))
+    println(truck.move(10.0))
+    //Выгружаем
+    println(truck.unloadPassengers(1))
+    println(car1.unloadPassengers(3))
+    println(car2.unloadPassengers(2))
+    println(truck.unloadCargo(2.0))
 }
 
