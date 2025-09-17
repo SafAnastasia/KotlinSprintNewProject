@@ -4,20 +4,12 @@ class QuizElement(
     question: String,
     answer: String
 ) {
-    val question: String = question
-        get() {
-            println("Воспрос")
-            return field
-        }
+    var question: String = question
+        get() = field
+        
     var answer: String = answer
-        get() {
-            println("Ответ")
-            return field
-
-        }
+        get() = field
         set(value) {
-            println("Новый ответ")
             field = value
         }
-
 }
