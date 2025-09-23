@@ -1,27 +1,20 @@
 package org.example.lesson_18
 
-class Order(val orderNumber: Int, val items: Any) {
-    fun displayOrderInfo() {
-        when (items) {
-            is String -> {
-                println("Заказан одни товар: $items")
-            }
+class Order(val orderNumber: Int) {
 
-            is List<*> -> {
-                val itemsList = items.joinToString(", ")
-                println("Заказаны товары: $itemsList")
-            }
+    fun printOrder(product: String) {
+        println("Заказан одни товар: $product")
+    }
 
-        }
-
+    fun printOrder(products: List<String>) {
+        println("Заказано несколько товаров: ${products.joinToString(" , ")}")
     }
 }
 
 fun main() {
-    val order = Order(567, listOf("телефон", "рюкзак", "перчатки"))
-    val order2 = Order(234, "джинсы")
+    val order = Order(1)
 
-    order.displayOrderInfo()
-    order2.displayOrderInfo()
+    order.printOrder("яблоко")
+    order.printOrder(listOf("хлеб", "авокадо", "масло"))
 }
 
