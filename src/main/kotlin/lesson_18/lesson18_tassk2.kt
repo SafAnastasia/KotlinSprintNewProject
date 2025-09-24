@@ -1,36 +1,18 @@
 package org.example.lesson_18
 
-interface Dice {
-    fun roll()
-}
-
-class D4 : Dice {
-    override fun roll() {
-        val result: Int = (1..4).random()
-        println("Выпало число: $result")
+abstract class Dice(private val sides: Int) {
+    fun roll() {
+        val result: Int = (1..sides).random()
+        println("Выпало число на D$sides: $result")
     }
 }
 
-class D6 : Dice {
-    override fun roll() {
-        val result: Int = (1..6).random()
-        println("Выпало число: $result")
-    }
-}
-
-class D8 : Dice {
-    override fun roll() {
-        val result: Int = (1..8).random()
-        println("Выпало число: $result")
-    }
-}
+class Dice4 : Dice(4)
+class Dice6 : Dice(6)
+class Dice8 : Dice(8)
 
 fun main() {
-    val dice1: Dice = D4()
-    val dice2: Dice = D6()
-    val dice3: Dice = D8()
-
-    val diceList = listOf<Dice>(dice1, dice2, dice3)
+    val diceList = listOf(Dice4(), Dice6(), Dice8())
 
     println("Бросаем кости")
     for (dice in diceList) {
