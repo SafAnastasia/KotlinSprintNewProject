@@ -3,7 +3,7 @@ package org.example.lesson_19
 class SpiceShip() {
 
     fun takeoff() {
-        //TODO: Здеьс нужна информация о дополнительной логике
+        //TODO: Здесь нужна информация о дополнительной логике
     }
 
     fun land() {
