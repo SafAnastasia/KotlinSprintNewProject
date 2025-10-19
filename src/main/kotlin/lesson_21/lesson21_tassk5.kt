@@ -1,10 +1,7 @@
 package org.example.lesson_21
 
 fun Map<String, Int>.maxCategory(): String {
-    if (this.isEmpty()) {
-        return "Нет навыков"
-    }
-    return this.maxBy { it.value }.key
+    return this.maxByOrNull { it.value }?.key ?: "Нет навыков"
 }
 
 fun main() {
