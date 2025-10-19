@@ -3,22 +3,21 @@ package org.example.lesson_19
 enum class AmmoType(val damage: Int) {
     BLUE(5),
     GREEN(10),
-    RED(20),
-    NONE(0)
+    RED(20)
 }
 
 class Tank {
-    private var currentAmmo: AmmoType = AmmoType.NONE
+    private var currentAmmo: AmmoType? = null
     fun equipAmmo(ammo: AmmoType) {
         currentAmmo = ammo
-        println("Танк заряжен патронами:${currentAmmo.name}")
+        println("Танк заряжен патронами:${ammo.name}")
     }
 
     fun shoot() {
-        if (currentAmmo == AmmoType.NONE) {
+        if (currentAmmo == null) {
             println("Танк не заряжен")
         } else {
-            println("Выстрел! Нанесено урона ${currentAmmo.damage}")
+            println("Выстрел! Нанесено урона ${currentAmmo!!.damage}")
         }
     }
 }
