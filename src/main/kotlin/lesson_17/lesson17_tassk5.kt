@@ -19,12 +19,10 @@ fun main() {
     println("Логин:${user.login}")
     println("Пароль:${user.password}")
     println()
-
     println("Изменение логина")
     user.login = "sky33"
     println("Новый логин: ${user.login}")
     println()
-
     println("Изменение пароля")
     user.password = "pass6677"
     println("Пароль после попытки его изменить: ${user.password}")
