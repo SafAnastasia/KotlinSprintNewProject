@@ -1,86 +1,55 @@
 package org.example.lesson_11
 
 
-class Forum private constructor() {
-    private val users = mutableMapOf<Int, User>()
-    private val messages = mutableListOf<Message>()
-    private var userIdCounter = 0
+class Forum() {
+    private val users = mutableMapOf<Int, UserForum>()
+    private val messages = mutableListOf<MessageForum>()
+    private var userIdCounter = 1
 
-    companion object {
-        fun create(): Forum = Forum()
-    }
-    class User private constructor(
-    val userId: Int,
-    val userName: String
-) {
-    class Builder {
-        private var userName: String = ""
+    private val builder = Builder()
 
-        fun withName(name: String): Builder {
-            this.userName = name
-            return this
-        }
-        fun build(id: Int): User = User(id, userName)
-    }
-}
-    class Message private constructor(
-        val authorId: Int,
-        val message: String
-) {
-
-   class Builder {
-       private var authorId: Int = 0
-       private var message: String = ""
-
-       fun withAuthorId(id: Int): Builder {
-           this.authorId = id
-           return this
-       }
-       fun withMessage(text: String): Builder {
-           this.message = text
-           return this
-       }
-
-       fun build(): Message = Message(authorId, message)
-
-       }
-   }
-
-    fun createNewUser(name: String): User {
-        val user = User.Builder()
-            .withName(name)
-            .build(++userIdCounter)
-
+    fun createNewUser(name: String): UserForum {
+        val user = builder.createNewUser(userIdCounter++, name)
         users[user.userId] = user
         return user
     }
 
-    fun createNewMessage(authorId: Int, text: String): Message? {
-        if (!users.containsKey(authorId)) {
-            return null
-        }
-
-        val message = Message.Builder()
-            .withAuthorId(authorId)
-            .withMessage(text)
-            .build()
-
-        messages.add(message)
-        return message
-
+    fun createNewMessage(authorId: Int, text: String) {
+        val author = users[authorId] ?: return
+        val msg = builder.createNewMessage(author.userId, text)
+        messages.add(msg)
     }
 
     fun printThread() {
-        messages.forEach { msg ->
-            val authorName = users[msg.authorId]!!.userName
-            println("$authorName: ${msg.message}")
+        for (msg in messages) {
+            val name = users[msg.authorId]?.userName ?: "Неизвестный"
+            println("$name: ${msg.message}")
+        }
+    }
 
+    private class Builder {
+        fun createNewUser(id: Int, name: String): UserForum {
+            return UserForum(id, name)
+        }
+
+        fun createNewMessage(authorId: Int, text: String): MessageForum {
+            return MessageForum(authorId, text)
         }
     }
 }
 
+class UserForum(
+    val userId: Int,
+    val userName: String
+)
+
+class MessageForum(
+    val authorId: Int,
+    val message: String
+)
+
 fun main() {
-    val forum = Forum.create()
+    val forum = Forum()
 
     val user1 = forum.createNewUser("Олег")
     val user2 = forum.createNewUser("Анна")
@@ -92,6 +61,4 @@ fun main() {
 
     println("Выводим форум")
     forum.printThread()
-
-
 }
